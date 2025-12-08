@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "my-ci-cd-demo"
+version = "0.1.0"
+description = ""
+authors = ["Michael Fry <mfry1199@gmail.com>"]
+readme = "README.md"
+packages = [{include = "my_ci_cd_demo", from = "src"}]
+
+[tool.poetry.dependencies]
+python = ">=3.13"
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[dependency-groups]
+dev = [
+    "mypy (>=1.19.0,<2.0.0)",
+    "flake8 (>=7.3.0,<8.0.0)",
+    "pytest (>=9.0.2,<10.0.0)"
+]
