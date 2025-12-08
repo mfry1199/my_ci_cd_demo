@@ -59,7 +59,8 @@ jobs:
             - name: Build binary with PyInstaller
               run: |
                 poetry run pip install pyinstaller
-                poetry run pyinstaller my_ci_cd_demo/main.py --onefile --name demoapp
+                poetry run pyinstaller src/my_ci_cd_demo/main.py --onefile --name demoapp
+
 
 
             - name: Upload Artifact
