@@ -7,7 +7,7 @@ readme = "README.md"
 packages = [{include = "my_ci_cd_demo", from = "src"}]
 
 [tool.poetry.dependencies]
-python = ">=3.13"
+python = "^3.10"
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
