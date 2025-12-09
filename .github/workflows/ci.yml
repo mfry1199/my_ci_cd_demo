@@ -61,16 +61,18 @@ jobs:
                 name: coverage-html
                 path: htmlcov/
 
+            - name: Upload coverage HTML
+              uses: actions/upload-artifact@v4
+              with:
+                name: coverage-html-${{ matrix.python-version }}
+                path: htmlcov/
+
             - name: Upload coverage XML
               uses: actions/upload-artifact@v4
               with:
-                name: coverage-xml
+                name: coverage-xml-${{ matrix.python-version }}
                 path: coverage.xml
 
-            - name: Build binary with PyInstaller
-              run: |
-                poetry run pip install pyinstaller
-                poetry run pyinstaller src/my_ci_cd_demo/main.py --onefile --name demoapp
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
