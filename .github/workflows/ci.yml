@@ -55,13 +55,25 @@ jobs:
             - name: run pytest
               run: poetry run pytest -q
 
+            - name: Run tests with coverage
+              run: poetry run pytest --cov=your_package_name --cov-report=xml --cov-report=html
+
+            - name: Upload coverage HTML
+              uses: actions/upload-artifact@v4
+              with:
+                name: coverage-html
+                path: htmlcov/
+
+            - name: Upload coverage XML
+              uses: actions/upload-artifact@v4
+              with:
+                name: coverage-xml
+                path: coverage.xml
 
             - name: Build binary with PyInstaller
               run: |
                 poetry run pip install pyinstaller
                 poetry run pyinstaller src/my_ci_cd_demo/main.py --onefile --name demoapp
-
-
 
             - name: Upload Artifact
               uses: actions/upload-artifact@v4
