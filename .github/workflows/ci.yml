@@ -52,11 +52,8 @@ jobs:
               run: poetry run ruff check .
 
 
-            - name: run pytest
-              run: poetry run pytest -q
-
             - name: Run tests with coverage
-              run: poetry run pytest --cov=your_package_name --cov-report=xml --cov-report=html
+              run: poetry run pytest --cov=my_ci_cd_demo --cov-report=xml --cov-report=html
 
             - name: Upload coverage HTML
               uses: actions/upload-artifact@v4
